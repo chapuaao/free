@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gincana do M — Protótipo Demonstrativo</title>
+  <meta name="description" content="Protótipo demonstrativo da Gincana do M — experiência de jogo, ranking e painel administrativo." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="demo-ribbon">PROTÓTIPO DEMONSTRATIVO · DADOS ESTÁTICOS</div>
+  <header class="topbar">
+    <a class="brand" href="#inicio"><span class="brand-mark">M</span><span>Gincana do M</span></a>
+    <nav>
+      <a href="#jogo">Jogo</a><a href="#ranking">Ranking</a><a href="#admin">Admin</a><a href="#investimento">Projeto</a>
+    </nav>
+    <button class="ghost" id="presentationBtn">Modo apresentação</button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <div class="eyebrow">UMA NOVA EXPERIÊNCIA DIGITAL</div>
+        <h1>Conhecer. Jogar.<br><span>Participar.</span></h1>
+        <p>Um universo interativo de tabuleiro, desafios, história, cultura, conquistas e competição saudável — concebido para dispositivos móveis e experiências coletivas.</p>
+        <div class="actions"><a class="btn primary" href="#jogo">Explorar o protótipo</a><a class="btn secondary" href="#admin">Ver painel administrativo</a></div>
+        <div class="hero-stats">
+          <div><b>2</b><span>modos de jogo</span></div><div><b>18</b><span>províncias no ranking</span></div><div><b>50+</b><span>casas por percurso</span></div>
+        </div>
+      </div>
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-head"><span class="mini-logo">M</span><span>Nível 12</span><span>3 840 pts</span></div>
+          <div class="mini-board" id="miniBoard"></div>
+          <div class="turn-card"><span>É a tua vez</span><strong id="miniDice">⚄</strong><button id="miniRoll">LANÇAR DADO</button></div>
+          <div class="mini-nav"><span>⌂</span><span>♟</span><span>★</span><span>☰</span></div>
+        </div>
+        <div class="float-card one"><b>+100</b><span>Mobilização</span></div>
+        <div class="float-card two"><b>🏅</b><span>Nova conquista</span></div>
+      </div>
+    </section>
+
+    <section class="numbers">
+      <div class="section-title"><span>VISÃO DO ECOSSISTEMA</span><h2>Uma plataforma preparada para crescer</h2><p>Os números abaixo são ilustrativos e demonstram como indicadores reais poderão ser apresentados.</p></div>
+      <div class="metric-grid">
+        <article><span>Jogadores registados</span><strong>24 580</strong><em>+12,8% este mês</em></article>
+        <article><span>Partidas concluídas</span><strong>8 942</strong><em>72% de conclusão</em></article>
+        <article><span>Conteúdos ativos</span><strong>126</strong><em>Quizzes, bónus e eventos</em></article>
+        <article><span>Províncias ativas</span><strong>18/18</strong><em>Cobertura nacional</em></article>
+      </div>
+    </section>
+
+    <section class="game-section" id="jogo">
+      <div class="section-title"><span>EXPERIÊNCIA DO JOGO</span><h2>Tabuleiro vivo, decisões simples, partidas memoráveis</h2><p>Experimente uma interação visual. Nesta versão, tudo ocorre apenas no navegador e não existe servidor de jogo.</p></div>
+      <div class="game-shell">
+        <div class="board-panel">
+          <div class="board" id="board"><div class="board-center"><div class="center-logo">M</div><p>Gincana do M</p><small>DEMONSTRAÇÃO</small><button class="dice-btn" id="rollBtn"><span id="diceIcon">⚄</span><b>Lançar dado</b></button><div id="turnText">Casa 1 · Tua vez</div></div></div>
+        </div>
+        <aside class="game-side">
+          <div class="player-card"><div class="avatar">TG</div><div><small>JOGADOR</small><h3>Camarada Digital</h3><p>Nível 12 · 3 840 pontos</p></div></div>
+          <div class="side-card"><small>ÚLTIMO DESAFIO</small><h3>História em Movimento</h3><p>Responde corretamente e avança duas casas.</p><div class="answer-grid"><button>1975</button><button>1976</button><button>2002</button><button>2010</button></div></div>
+          <div class="side-card"><small>CONQUISTAS</small><div class="badges"><span title="Conhecimento">🏆</span><span title="Assiduidade">🔥</span><span title="Equipa">🤝</span><span title="Explorador">🧭</span></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cards-section">
+      <div class="section-title"><span>MECÂNICAS</span><h2>Conteúdo que muda a partida</h2></div>
+      <div class="feature-cards">
+        <article class="f quiz"><div class="icon">?</div><small>PERGUNTA</small><h3>Memória e História</h3><p>Questões de múltipla escolha transformam conhecimento em progressão.</p><b>+50 pontos</b></article>
+        <article class="f bonus"><div class="icon">★</div><small>BÓNUS</small><h3>Ação Positiva</h3><p>Eventos favoráveis criam ritmo, surpresa e recompensa.</p><b>Avança 3 casas</b></article>
+        <article class="f sanction"><div class="icon">!</div><small>SANÇÃO</small><h3>Desafio de Disciplina</h3><p>Consequências lúdicas alteram o percurso e equilibram a competição.</p><b>Recua 2 casas</b></article>
+        <article class="f event"><div class="icon">⚡</div><small>EVENTO</small><h3>Missão Relâmpago</h3><p>Mini-desafios aumentam a interação e quebram a previsibilidade.</p><b>Desafio coletivo</b></article>
+      </div>
+    </section>
+
+    <section class="ranking-section" id="ranking">
+      <div class="section-title"><span>COMPETIÇÃO</span><h2>Ranking nacional e reconhecimento</h2><p>Exemplo de leaderboard com desempenho individual e representação provincial.</p></div>
+      <div class="ranking-shell">
+        <div class="podium">
+          <div class="pod p2"><div class="rank-avatar">AM</div><b>2º</b><span>Ana M.</span><small>Benguela · 8 920 pts</small></div>
+          <div class="pod p1"><div class="rank-avatar crown">JL</div><b>1º</b><span>João L.</span><small>Luanda · 9 480 pts</small></div>
+          <div class="pod p3"><div class="rank-avatar">CS</div><b>3º</b><span>Carlos S.</span><small>Huambo · 8 610 pts</small></div>
+        </div>
+        <div class="rank-table">
+          <div class="r head"><span>#</span><span>Jogador</span><span>Província</span><span>Partidas</span><span>Pontos</span></div>
+          <div class="r"><span>4</span><span>Mariana K.</span><span>Huíla</span><span>38</span><b>8 240</b></div>
+          <div class="r"><span>5</span><span>Paulo B.</span><span>Cabinda</span><span>35</span><b>7 990</b></div>
+          <div class="r"><span>6</span><span>Teresa A.</span><span>Malanje</span><span>31</span><b>7 840</b></div>
+          <div class="r"><span>7</span><span>Mário F.</span><span>Uíge</span><span>29</span><b>7 520</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-section" id="admin">
+      <div class="section-title light"><span>PAINEL ADMINISTRATIVO</span><h2>Conteúdo e operação sob controlo</h2><p>Simulação de como equipas autorizadas poderão gerir perguntas, cartas, campanhas temáticas e indicadores.</p></div>
+      <div class="admin-window">
+        <aside class="admin-nav"><div class="admin-brand"><span>M</span><b>Gincana Admin</b></div><a class="active">▦ Dashboard</a><a>▤ Conteúdos</a><a>⌗ Tabuleiros</a><a>♟ Jogadores</a><a>🏆 Ranking</a><a>⚙ Definições</a><div class="admin-user"><span>TG</span><div><b>Administrador</b><small>Tenda Digital</small></div></div></aside>
+        <div class="admin-main">
+          <div class="admin-top"><div><small>VISÃO GERAL</small><h3>Dashboard</h3></div><button>+ Novo conteúdo</button></div>
+          <div class="admin-kpis"><article><span>Jogadores ativos</span><b>8 320</b><em>+8,4%</em></article><article><span>Partidas hoje</span><b>1 286</b><em>+14,1%</em></article><article><span>Taxa de conclusão</span><b>72%</b><em>+3,2%</em></article><article><span>Conteúdos</span><b>126</b><em>12 rascunhos</em></article></div>
+          <div class="admin-grid"><article class="chart-card"><div class="chart-head"><div><small>ATIVIDADE</small><h4>Partidas nos últimos 7 dias</h4></div><span>Esta semana ▾</span></div><div class="chart"><i style="height:36%"></i><i style="height:49%"></i><i style="height:43%"></i><i style="height:67%"></i><i style="height:60%"></i><i style="height:82%"></i><i style="height:72%"></i></div><div class="days"><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span><span>D</span></div></article><article class="content-list"><small>CONTEÚDOS RECENTES</small><h4>Gestão editorial</h4><div><span class="dot green"></span><p><b>História em Movimento</b><small>Quiz · Publicado</small></p><em>Hoje</em></div><div><span class="dot yellow"></span><p><b>Missão de Equipa</b><small>Evento · Em revisão</small></p><em>Hoje</em></div><div><span class="dot red"></span><p><b>Disciplina e Assiduidade</b><small>Sanção · Rascunho</small></p><em>Ontem</em></div></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="investment" id="investimento">
+      <div class="section-title"><span>IMPLEMENTAÇÃO</span><h2>Do protótipo ao produto funcional</h2><p>Referência financeira proposta para implementação integral, sujeita à formalização do escopo final.</p></div>
+      <div class="investment-grid">
+        <article class="price-card main"><small>INVESTIMENTO TOTAL DE REFERÊNCIA</small><strong>13 000 000 <i>Kz</i></strong><p>Produto funcional + disponibilização online.</p><div class="split"><span><b>11M Kz</b><small>Desenvolvimento</small></span><span><b>2M Kz</b><small>Disponibilização</small></span></div></article>
+        <article class="timeline-card"><h3>Execução por marcos</h3><div><b>01</b><span><strong>Conceção e UX</strong><small>Regras, conteúdos, design e protótipo validado</small></span></div><div><b>02</b><span><strong>Produto base</strong><small>Flutter, Laravel, Vue e single player</small></span></div><div><b>03</b><span><strong>Multiplayer e operação</strong><small>Salas, ranking, gestão e testes</small></span></div><div><b>04</b><span><strong>Disponibilização</strong><small>Infraestrutura, publicação e estabilização</small></span></div></article>
+      </div>
+      <div class="note">Este site é uma demonstração conceptual. Não representa produto concluído, compromisso institucional ou dados reais de utilizadores.</div>
+    </section>
+  </main>
+
+  <footer><div class="brand"><span class="brand-mark">M</span><span>Gincana do M</span></div><p>Protótipo demonstrativo concebido pela <b>Tenda Digital</b>.</p><small>© 2026 · Conceito sujeito a validação institucional e de conteúdo.</small></footer>
+
+  <div class="toast" id="toast"><b id="toastTitle">Desafio!</b><span id="toastText">Avançaste no tabuleiro.</span></div>
+  <script src="app.js"></script>
+</body>
+</html>
