@@ -1,1 +1,1 @@
-document.write('<script src="game-core.js"><\/script><script src="game-patch.js"><\/script><script src="game-patch2.js"><\/script>');
+document.write('<script src="game-core.js"><\/script><script src="game-patch.js"><\/script><script src="game-patch2.js"><\/script><script src="game-avatar-patch.js"><\/script>');
