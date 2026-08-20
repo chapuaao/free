@@ -4,23 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gincana do M — Demo Jogável</title>
-  <meta name="description" content="Demonstração semi-funcional da Gincana do M para até quatro jogadores locais." />
+  <meta name="description" content="Demonstração semi-funcional da Gincana do M com percurso M-P-L-A-Estrela para até quatro jogadores locais." />
   <link rel="stylesheet" href="game.css" />
 </head>
 <body>
-  <div class="demo-banner">DEMO SEMI-FUNCIONAL · MULTIJOGADOR LOCAL · CONTEÚDO ILUSTRATIVO</div>
+  <div class="demo-banner">DEMO SEMI-FUNCIONAL · MULTIJOGADOR LOCAL · CONTEÚDO DEMONSTRATIVO VALIDADO EM FONTES PÚBLICAS</div>
   <header class="game-header">
-    <a class="brand" href="./"><span class="mark">M</span><span><b>Gincana do M</b><small>Demo jogável</small></span></a>
-    <div class="header-actions"><button class="icon-btn" id="soundBtn" type="button" title="Som">🔊</button><button class="icon-btn" id="fullscreenBtn" type="button" title="Ecrã inteiro">⛶</button><a class="back-link" href="./">← Voltar ao projeto</a></div>
+    <a class="brand" href="./"><span class="mark">M</span><span><b>Gincana do M</b><small>Demo jogável · circuito MPLA</small></span></a>
+    <div class="header-actions">
+      <button class="icon-btn" id="soundBtn" type="button" title="Som">🔊</button>
+      <button class="icon-btn" id="fullscreenBtn" type="button" title="Ecrã inteiro">⛶</button>
+      <a class="back-link" href="./">← Voltar ao projeto</a>
+    </div>
   </header>
+
   <main>
     <section id="setupScreen" class="setup-screen">
       <div class="setup-copy">
         <span class="eyebrow">PARTIDA DE DEMONSTRAÇÃO</span>
-        <h1>Preparem os jogadores.<br><em>O tabuleiro começa agora.</em></h1>
-        <p>Esta versão funciona totalmente no navegador e foi desenhada para uma apresentação presencial. Escolha entre 1 e 4 jogadores, personalize os nomes e jogue por turnos no mesmo dispositivo.</p>
-        <div class="setup-pills"><span>🎲 Dado real</span><span>❓ Quizzes</span><span>⚡ Desafios</span><span>★ Bónus</span><span>! Sanções</span><span>🏆 Vencedor</span></div>
-        <div class="demo-note"><b>Nota:</b> o conteúdo desta demo é ilustrativo e deve ser validado institucionalmente antes de integrar o produto final.</div>
+        <h1>Um percurso com a própria<br><em>assinatura visual MPLA.</em></h1>
+        <p>Os jogadores percorrem cinco níveis consecutivos: <b>M</b>, <b>P</b>, <b>L</b>, <b>A</b> e a <b>estrela</b>. Cada nível tem um circuito próprio, desafios, perguntas, bónus e sanções. Ao completar um símbolo, o jogador conquista o nível e passa ao seguinte.</p>
+        <div class="level-preview"><span>M</span><i>→</i><span>P</span><i>→</i><span>L</span><i>→</i><span>A</span><i>→</i><span>★</span></div>
+        <div class="setup-pills"><span>🎲 Dado real</span><span>❓ História e Estatutos</span><span>⚡ Desafios</span><span>★ Bónus</span><span>! Sanções</span><span>🏆 5 níveis</span></div>
+        <div class="demo-note"><b>Nota de demonstração:</b> perguntas históricas e estatutárias foram preparadas a partir de fontes públicas oficiais do MPLA. Cargos atuais estão assinalados como “Atualizado: ago. 2026” e devem ser revistos antes de apresentações futuras.</div>
       </div>
       <div class="setup-card">
         <div class="step-title"><span>01</span><div><small>CONFIGURAÇÃO</small><h2>Quem vai jogar?</h2></div></div>
@@ -34,28 +40,35 @@
     <section id="gameScreen" class="game-screen hidden">
       <div class="status-strip">
         <div><span class="eyebrow">PARTIDA EM CURSO</span><h2 id="roundLabel">Ronda 1</h2></div>
-        <div class="turn-focus" id="turnFocus"><span class="turn-token" id="turnToken"></span><div><small>É A VEZ DE</small><b id="turnName">Jogador</b></div></div>
+        <div class="turn-focus" id="turnFocus"><span class="turn-token" id="turnToken"></span><div><small>É A VEZ DE</small><b id="turnName">Jogador</b><em id="turnLevel">Nível M</em></div></div>
         <button id="newGameBtn" class="outline-btn" type="button">Nova partida</button>
       </div>
+
       <div class="game-layout">
         <section class="board-wrap">
-          <div class="board" id="gameBoard">
-            <div class="board-center"><span class="center-mark">M</span><small>GINCANA DO M</small><h3 id="centerMessage">Preparados?</h3><div class="dice" id="dice">⚄</div><button class="roll-btn" id="rollBtn" type="button">LANÇAR DADO</button><p id="turnHint">O jogador atual deve lançar o dado.</p></div>
+          <div class="map-title"><div><small>MAPA DO JOGO</small><h2>MPLA <span>★</span></h2></div><p>Cada símbolo é um nível. Complete o circuito para desbloquear o seguinte.</p></div>
+          <div class="mplamap" id="mplaMap"></div>
+          <div class="controls-dock">
+            <div class="current-level"><small>NÍVEL ATUAL</small><strong id="centerMessage">M · Origem</strong><span id="turnHint">O jogador atual deve lançar o dado.</span></div>
+            <div class="dice" id="dice">⚄</div>
+            <button class="roll-btn" id="rollBtn" type="button">LANÇAR DADO</button>
           </div>
-          <div class="legend"><span><i class="quiz-dot"></i>Quiz</span><span><i class="challenge-dot"></i>Desafio</span><span><i class="bonus-dot"></i>Bónus</span><span><i class="penalty-dot"></i>Sanção</span><span><i class="event-dot"></i>Evento</span></div>
+          <div class="legend"><span><i class="quiz-dot"></i>Quiz</span><span><i class="challenge-dot"></i>Desafio</span><span><i class="bonus-dot"></i>Bónus</span><span><i class="penalty-dot"></i>Sanção</span><span><i class="event-dot"></i>Evento</span><span><i class="finish-dot"></i>Fim do nível</span></div>
         </section>
+
         <aside class="side-panel">
           <section class="score-card"><div class="panel-head"><div><small>CLASSIFICAÇÃO</small><h3>Jogadores</h3></div><span id="playersAlive">0/4</span></div><div id="scoreList" class="score-list"></div></section>
+          <section class="progress-card"><div class="panel-head"><div><small>PERCURSO</small><h3>Níveis</h3></div></div><div class="progress-track"><span>M</span><span>P</span><span>L</span><span>A</span><span>★</span></div><p>Vencer um nível vale <b>+120 pontos</b>. Concluir a estrela fecha a partida.</p></section>
           <section class="log-card"><div class="panel-head"><div><small>PARTIDA</small><h3>Últimos acontecimentos</h3></div></div><div id="gameLog" class="game-log"></div></section>
         </aside>
       </div>
     </section>
   </main>
 
-  <div class="modal-backdrop hidden" id="eventModal"><div class="event-modal"><div class="event-badge" id="eventBadge">?</div><small id="eventKind">QUIZ</small><h2 id="eventTitle">Pergunta</h2><p id="eventText"></p><div id="answerArea" class="answer-area"></div><div id="eventResult" class="event-result hidden"></div><button id="continueBtn" class="primary-action hidden" type="button">CONTINUAR</button></div></div>
+  <div class="modal-backdrop hidden" id="eventModal"><div class="event-modal"><div class="event-badge" id="eventBadge">?</div><small id="eventKind">QUIZ</small><h2 id="eventTitle">Pergunta</h2><p id="eventText"></p><div class="source-note hidden" id="sourceNote"></div><div id="answerArea" class="answer-area"></div><div id="eventResult" class="event-result hidden"></div><button id="continueBtn" class="primary-action hidden" type="button">CONTINUAR</button></div></div>
   <div class="modal-backdrop hidden" id="winnerModal"><div class="event-modal winner-modal"><div class="winner-crown">🏆</div><small>PARTIDA CONCLUÍDA</small><h2 id="winnerTitle">Temos vencedor!</h2><p id="winnerText"></p><div id="finalRanking" class="final-ranking"></div><button id="playAgainBtn" class="primary-action" type="button">JOGAR NOVAMENTE</button><a class="secondary-action link-button" href="./">Voltar à apresentação</a></div></div>
   <div class="toast" id="toast"></div>
-  <footer><span>Protótipo demonstrativo concebido pela <b>Tenda Digital</b>.</span><small>Sem backend, sem dados reais e sem credenciais. © 2026</small></footer>
+  <footer><span>Protótipo demonstrativo concebido pela <b>Tenda Digital</b>.</span><small>Sem backend, sem dados reais e sem credenciais. Conteúdos sujeitos a validação institucional. © 2026</small></footer>
   <script src="game.js"></script>
 </body>
 </html>
