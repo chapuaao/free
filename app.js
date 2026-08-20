@@ -15,3 +15,23 @@ function roll(){const r=Math.floor(Math.random()*6)+1;document.getElementById('d
 document.getElementById('rollBtn').addEventListener('click',roll);
 document.querySelectorAll('.answer-grid button').forEach(b=>b.addEventListener('click',()=>toast(b.textContent==='1975'?'Resposta correta!':'Continua a tentar',b.textContent==='1975'?'+50 pontos demonstrativos':'Esta é apenas uma simulação')));
 document.getElementById('presentationBtn').addEventListener('click',()=>document.body.classList.toggle('presentation'));
+
+// Entrada para a demonstração semi-funcional.
+const actions=document.querySelector('.actions');
+if(actions){
+  const concept=actions.querySelector('.primary');
+  if(concept){concept.textContent='Ver conceito';concept.classList.remove('primary');concept.classList.add('secondary')}
+  const play=document.createElement('a');
+  play.className='btn primary';
+  play.href='jogar.html';
+  play.textContent='▶ Jogar demonstração';
+  actions.prepend(play);
+}
+const nav=document.querySelector('nav');
+if(nav){
+  const playNav=document.createElement('a');
+  playNav.href='jogar.html';
+  playNav.textContent='Jogar agora';
+  playNav.style.color='#d90016';
+  nav.prepend(playNav);
+}
