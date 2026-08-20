@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="game.css" />
 </head>
 <body>
-  <div class="demo-banner">DEMO SEMI-FUNCIONAL · MULTIJOGADOR LOCAL · CONTEÚDO DEMONSTRATIVO VALIDADO EM FONTES PÚBLICAS</div>
+  <div class="demo-banner">DEMO SEMI-FUNCIONAL · MULTIJOGADOR LOCAL · CONTEÚDO DEMONSTRATIVO</div>
   <header class="game-header">
     <a class="brand" href="./"><span class="mark">M</span><span><b>Gincana do M</b><small>Demo jogável · circuito MPLA</small></span></a>
     <div class="header-actions">
@@ -23,43 +23,50 @@
       <div class="setup-copy">
         <span class="eyebrow">PARTIDA DE DEMONSTRAÇÃO</span>
         <h1>Um percurso com a própria<br><em>assinatura visual MPLA.</em></h1>
-        <p>Os jogadores percorrem cinco níveis consecutivos: <b>M</b>, <b>P</b>, <b>L</b>, <b>A</b> e a <b>estrela</b>. Cada nível tem um circuito próprio, desafios, perguntas, bónus e sanções. Ao completar um símbolo, o jogador conquista o nível e passa ao seguinte.</p>
+        <p>Os jogadores percorrem cinco níveis consecutivos: <b>M</b>, <b>P</b>, <b>L</b>, <b>A</b> e a <b>estrela</b>. Cada nível possui <b>50 checkpoints</b>, com perguntas, desafios, bónus, eventos e sanções.</p>
         <div class="level-preview"><span>M</span><i>→</i><span>P</span><i>→</i><span>L</span><i>→</i><span>A</span><i>→</i><span>★</span></div>
-        <div class="setup-pills"><span>🎲 Dado real</span><span>❓ História e Estatutos</span><span>⚡ Desafios</span><span>★ Bónus</span><span>! Sanções</span><span>🏆 5 níveis</span></div>
-        <div class="demo-note"><b>Nota de demonstração:</b> perguntas históricas e estatutárias foram preparadas a partir de fontes públicas oficiais do MPLA. Cargos atuais estão assinalados como “Atualizado: ago. 2026” e devem ser revistos antes de apresentações futuras.</div>
+        <div class="setup-pills"><span>🎲 Dado real</span><span>❓ História e Estatutos</span><span>⚡ Desafios</span><span>★ Bónus</span><span>! Sanções</span><span>250 checkpoints</span></div>
+        <div class="demo-note"><b>Nota:</b> esta é uma amostra de produto. Cargos e factos contemporâneos devem ser revistos antes de apresentações futuras.</div>
       </div>
       <div class="setup-card">
         <div class="step-title"><span>01</span><div><small>CONFIGURAÇÃO</small><h2>Quem vai jogar?</h2></div></div>
-        <div class="player-count" id="playerCount"><button type="button" data-count="1">1</button><button type="button" data-count="2" class="active">2</button><button type="button" data-count="3">3</button><button type="button" data-count="4">4</button></div>
+        <div class="player-count" id="playerCount">
+          <button type="button" data-count="1">1</button><button type="button" data-count="2" class="active">2</button><button type="button" data-count="3">3</button><button type="button" data-count="4">4</button>
+        </div>
         <div class="player-inputs" id="playerInputs"></div>
+        <label class="speed-option"><input type="checkbox" id="presentationPace" checked><span><b>Ritmo de apresentação</b><small>O dado avança 3× mais checkpoints para encurtar a demonstração.</small></span></label>
         <button id="startBtn" class="primary-action" type="button">INICIAR PARTIDA <span>→</span></button>
         <button id="quickDemoBtn" class="secondary-action" type="button">Preencher nomes de demonstração</button>
       </div>
     </section>
 
     <section id="gameScreen" class="game-screen hidden">
-      <div class="status-strip">
-        <div><span class="eyebrow">PARTIDA EM CURSO</span><h2 id="roundLabel">Ronda 1</h2></div>
-        <div class="turn-focus" id="turnFocus"><span class="turn-token" id="turnToken"></span><div><small>É A VEZ DE</small><b id="turnName">Jogador</b><em id="turnLevel">Nível M</em></div></div>
-        <button id="newGameBtn" class="outline-btn" type="button">Nova partida</button>
-      </div>
-
       <div class="game-layout">
-        <section class="board-wrap">
-          <div class="map-title"><div><small>MAPA DO JOGO</small><h2>MPLA <span>★</span></h2></div><p>Cada símbolo é um nível. Complete o circuito para desbloquear o seguinte.</p></div>
-          <div class="mplamap" id="mplaMap"></div>
-          <div class="controls-dock">
-            <div class="current-level"><small>NÍVEL ATUAL</small><strong id="centerMessage">M · Origem</strong><span id="turnHint">O jogador atual deve lançar o dado.</span></div>
-            <div class="dice" id="dice">⚄</div>
-            <button class="roll-btn" id="rollBtn" type="button">LANÇAR DADO</button>
+        <section class="board-column">
+          <div class="board-toolbar">
+            <div><span class="eyebrow">MAPA DO JOGO</span><h2>M P L A <span>★</span></h2></div>
+            <div class="map-summary"><b>5 níveis</b><span>50 checkpoints por nível · 250 no total</span></div>
           </div>
-          <div class="legend"><span><i class="quiz-dot"></i>Quiz</span><span><i class="challenge-dot"></i>Desafio</span><span><i class="bonus-dot"></i>Bónus</span><span><i class="penalty-dot"></i>Sanção</span><span><i class="event-dot"></i>Evento</span><span><i class="finish-dot"></i>Fim do nível</span></div>
+          <div class="board-scroll" id="boardScroll">
+            <div class="mplamap" id="mplaMap"></div>
+            <div class="legend"><span><i class="quiz-dot"></i>Quiz</span><span><i class="challenge-dot"></i>Desafio</span><span><i class="bonus-dot"></i>Bónus</span><span><i class="penalty-dot"></i>Sanção</span><span><i class="event-dot"></i>Evento</span><span><i class="finish-dot"></i>Fim do nível</span></div>
+          </div>
         </section>
 
-        <aside class="side-panel">
-          <section class="score-card"><div class="panel-head"><div><small>CLASSIFICAÇÃO</small><h3>Jogadores</h3></div><span id="playersAlive">0/4</span></div><div id="scoreList" class="score-list"></div></section>
-          <section class="progress-card"><div class="panel-head"><div><small>PERCURSO</small><h3>Níveis</h3></div></div><div class="progress-track"><span>M</span><span>P</span><span>L</span><span>A</span><span>★</span></div><p>Vencer um nível vale <b>+120 pontos</b>. Concluir a estrela fecha a partida.</p></section>
-          <section class="log-card"><div class="panel-head"><div><small>PARTIDA</small><h3>Últimos acontecimentos</h3></div></div><div id="gameLog" class="game-log"></div></section>
+        <aside class="control-column">
+          <div class="control-dock">
+            <section class="turn-card">
+              <div class="turn-heading"><span class="turn-token" id="turnToken"></span><div><small>É A VEZ DE</small><b id="turnName">Jogador</b><em id="turnLevel">Nível M</em></div><span class="round-badge" id="roundLabel">Ronda 1</span></div>
+              <div class="dice-zone"><div class="dice" id="dice">⚄</div><div><strong id="centerMessage">M · Origem</strong><span id="turnHint">Lança o dado para avançar.</span></div></div>
+              <button class="roll-btn" id="rollBtn" type="button">🎲 LANÇAR DADO</button>
+              <div class="pace-badge" id="paceBadge">⚡ Ritmo de apresentação ×3</div>
+            </section>
+
+            <section class="score-card"><div class="panel-head"><div><small>CLASSIFICAÇÃO</small><h3>Jogadores</h3></div><span id="playersAlive">0/4</span></div><div id="scoreList" class="score-list"></div></section>
+            <section class="progress-card"><div class="panel-head"><div><small>PERCURSO</small><h3>Níveis</h3></div></div><div class="progress-track"><span>M</span><span>P</span><span>L</span><span>A</span><span>★</span></div><p>Concluir um nível vale <b>+120 pontos</b>. A estrela encerra a partida.</p></section>
+            <section class="log-card"><div class="panel-head"><div><small>PARTIDA</small><h3>Últimos acontecimentos</h3></div></div><div id="gameLog" class="game-log"></div></section>
+            <button id="newGameBtn" class="outline-btn" type="button">Nova partida</button>
+          </div>
         </aside>
       </div>
     </section>
