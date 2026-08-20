@@ -1,8 +1,8 @@
 const FACES=['⚀','⚁','⚂','⚃','⚄','⚅'];
 const COLORS=['#d80017','#2b7fff','#1da66b','#8e49e8'];
 const DEMO_NAMES=['João Luís','Tomás','Ana','Carlos'];
-const MAX_POS=35;
-const CELL_TYPES=['start','normal','quiz','bonus','normal','challenge','normal','event','quiz','penalty','normal','bonus','challenge','normal','quiz','event','normal','penalty','bonus','quiz','normal','challenge','event','normal','quiz','bonus','penalty','normal','challenge','quiz','event','bonus','normal','quiz','challenge','finish'];
+const MAX_POS=29;
+const CELL_TYPES=['start','normal','quiz','bonus','normal','challenge','normal','event','quiz','penalty','normal','bonus','challenge','normal','quiz','event','normal','penalty','bonus','quiz','normal','challenge','event','normal','quiz','bonus','penalty','normal','challenge','finish'];
 const QUIZZES=[
 {title:'História de Angola',question:'Em que ano foi proclamada a Independência de Angola?',options:['1972','1975','1979','2002'],answer:1,success:'+60 pontos por resposta correta.',fail:'Sem pontos nesta pergunta.'},
 {title:'Conhecer a organização',question:'O que significa a sigla MPLA?',options:['Movimento Popular de Libertação de Angola','Movimento Patriótico Livre de Angola','Movimento Popular Laboral Angolano','Movimento para a Paz e Liberdade de Angola'],answer:0,success:'+60 pontos por resposta correta.',fail:'Sem pontos nesta pergunta.'},
