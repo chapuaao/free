@@ -17,10 +17,10 @@
   .mobile-stats-toggle{width:100%;height:24px;border:0;background:transparent;color:#ffd21a;font-size:16px;line-height:1;font-weight:900;display:grid;place-items:center;margin:1px 0 0;transition:transform .2s}
   .mobile-game-dock.expanded .mobile-stats-toggle{transform:rotate(180deg)}
   .mobile-stats-drawer{position:absolute;left:8px;right:8px;bottom:100%;max-height:0;overflow:hidden;background:#15151a;border:1px solid #303038;border-bottom:0;border-radius:16px 16px 0 0;opacity:0;pointer-events:none;transition:max-height .25s ease,opacity .2s ease;box-shadow:0 -16px 36px rgba(0,0,0,.32)}
-  .mobile-game-dock.expanded .mobile-stats-drawer{max-height:42vh;opacity:1;pointer-events:auto;overflow-y:auto;padding:9px}
+  .mobile-game-dock.expanded .mobile-stats-drawer{max-height:28vh;opacity:1;pointer-events:auto;overflow-y:auto;padding:9px}
   .mobile-stats-drawer .score-card,.mobile-stats-drawer .progress-card,.mobile-stats-drawer .log-card{margin:0 0 7px;padding:10px;border-radius:12px}
-  .mobile-stats-drawer .log-card{min-height:120px;max-height:160px}
-  .mobile-stats-drawer .game-log{max-height:110px}
+  .mobile-stats-drawer .log-card{min-height:100px;max-height:130px}
+  .mobile-stats-drawer .game-log{max-height:82px}
   .mobile-stats-drawer .outline-btn{width:100%;margin:0;padding:9px}
   .mobile-stats-drawer .panel-head{margin-bottom:7px}
   .mobile-stats-drawer .score-row{padding:6px}
@@ -38,5 +38,5 @@
   .mobile-game-dock{padding-left:7px;padding-right:7px}
   .mobile-game-dock .turn-card{grid-template-columns:minmax(0,1fr) 104px;padding:7px 8px}
   .mobile-game-dock .roll-btn{height:54px;font-size:8px}
-  .mobile-game-dock.expanded .mobile-stats-drawer{max-height:38vh}
+  .mobile-game-dock.expanded .mobile-stats-drawer{max-height:25vh}
 }
