@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-AO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Simulador de treino para a prova teórica de condução Categoria B em Angola. 30 perguntas, 30 minutos e meta de 27 acertos.">
+  <title>Passa Código AO — Simulador Categoria B</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Passa Código AO">
+      <span class="brand-mark">PC</span>
+      <span><strong>Passa Código</strong><small>AO</small></span>
+    </a>
+    <a class="header-cta" href="#treinar">Treinar grátis</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Preparação para Categoria B · Angola</span>
+        <h1>Consegue fazer <span>27/30</span>?</h1>
+        <p class="lead">Treine no formato da prova teórica: 30 perguntas, 30 minutos e explicação imediata das respostas.</p>
+        <div class="hero-actions">
+          <button class="btn primary" id="startDemoTop">Fazer 10 perguntas grátis</button>
+          <a class="btn secondary" href="#premium">Ver acesso completo</a>
+        </div>
+        <div class="trust-row">
+          <span>Sem instalação</span><span>Funciona no telemóvel</span><span>Progresso guardado no aparelho</span>
+        </div>
+      </div>
+      <aside class="score-card" aria-label="Formato do exame">
+        <span class="score-label">Meta de aprovação</span>
+        <strong>27 / 30</strong>
+        <div class="score-track"><i></i></div>
+        <div class="score-meta"><span>30 questões</span><span>30 min</span><span>1 resposta correta</span></div>
+      </aside>
+    </section>
+
+    <section class="proof">
+      <div><strong>30</strong><span>questões por simulado</span></div>
+      <div><strong>30 min</strong><span>cronómetro realista</span></div>
+      <div><strong>27</strong><span>acertos para atingir a meta</span></div>
+      <div><strong>60</strong><span>questões originais no banco inicial</span></div>
+    </section>
+
+    <section class="section" id="treinar">
+      <div class="section-head">
+        <span class="eyebrow">Experimente antes de comprar</span>
+        <h2>Mini-simulado gratuito</h2>
+        <p>10 perguntas selecionadas. No fim, veja a pontuação e a explicação de cada erro.</p>
+      </div>
+      <div class="trainer-shell">
+        <div id="welcomePanel" class="panel centered">
+          <div class="round-icon">10</div>
+          <h3>Teste rápido</h3>
+          <p>Sem registo. O objetivo é perceber onde já está forte e o que precisa rever.</p>
+          <button class="btn primary wide" id="startDemo">Começar agora</button>
+        </div>
+
+        <div id="quizPanel" class="panel hidden">
+          <div class="quiz-top">
+            <div>
+              <span id="modeBadge" class="mode-badge">DEMO</span>
+              <span id="progressText">Pergunta 1 de 10</span>
+            </div>
+            <div id="timer" class="timer">--:--</div>
+          </div>
+          <div class="progress"><i id="progressBar"></i></div>
+          <div class="question-meta"><span id="category"></span><span id="scoreLive"></span></div>
+          <h3 id="questionText"></h3>
+          <div id="options" class="options"></div>
+          <div id="feedback" class="feedback hidden"></div>
+          <div class="quiz-actions">
+            <button class="btn secondary" id="quitQuiz">Sair</button>
+            <button class="btn primary hidden" id="nextQuestion">Próxima</button>
+          </div>
+        </div>
+
+        <div id="resultPanel" class="panel hidden">
+          <div id="resultRing" class="result-ring"><span id="resultScore">0/10</span></div>
+          <h3 id="resultTitle">Resultado</h3>
+          <p id="resultMessage"></p>
+          <div id="resultBreakdown" class="breakdown"></div>
+          <div class="result-actions">
+            <button class="btn secondary" id="retryQuiz">Tentar novamente</button>
+            <button class="btn primary" id="openPremiumFromResult">Desbloquear simulados completos</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="premium">
+      <div class="premium-grid">
+        <div>
+          <span class="eyebrow">Acesso completo</span>
+          <h2>Treine até a prova deixar de ser surpresa.</h2>
+          <p>Simulados aleatórios de 30 perguntas, cronómetro de 30 minutos, revisão comentada, categorias e histórico no dispositivo.</p>
+          <ul class="check-list">
+            <li>Simulados completos e ilimitados</li>
+            <li>Questões de sinalização, prioridade, manobras, segurança e regras do exame</li>
+            <li>Explicação e referência legal em cada resposta</li>
+            <li>Histórico das últimas tentativas no seu aparelho</li>
+          </ul>
+        </div>
+        <div class="buy-card">
+          <span class="launch">PREÇO DE LANÇAMENTO</span>
+          <div class="price">2 500 <small>Kz</small></div>
+          <p>Pagamento único para desbloquear esta versão.</p>
+          <a class="btn primary wide" id="buyWhatsapp" target="_blank" rel="noopener">Comprar pelo WhatsApp</a>
+          <button class="text-btn" id="haveCode">Já tenho um código de acesso</button>
+          <small>Após confirmação do pagamento, recebe o seu código de acesso. Não prometemos aprovação; oferecemos treino estruturado.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hidden" id="fullAccess">
+      <div class="section-head">
+        <span class="eyebrow">Acesso completo ativo</span>
+        <h2>Área de treino</h2>
+        <p>Escolha um simulado completo ou treine por categoria.</p>
+      </div>
+      <div class="dashboard">
+        <div class="dashboard-main">
+          <button class="action-card primary-card" id="startFullExam">
+            <span class="action-kicker">SIMULAÇÃO COMPLETA</span>
+            <strong>30 perguntas · 30 minutos</strong>
+            <small>Meta: pelo menos 27 respostas corretas.</small>
+          </button>
+          <div>
+            <h3>Treinar por categoria</h3>
+            <div id="categoryButtons" class="category-grid"></div>
+          </div>
+        </div>
+        <aside class="history-card">
+          <h3>Últimos resultados</h3>
+          <div id="historyList"><p class="muted">Ainda sem simulados completos.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section legal">
+      <div>
+        <span class="eyebrow">Base do treino</span>
+        <h2>Conteúdo orientado pela legislação angolana.</h2>
+      </div>
+      <p>O formato do simulado segue o regulamento de exames de condução aplicável à Categoria B: 30 questões, 30 minutos e aprovação com pelo menos 27 respostas corretas. As questões deste serviço são originais de estudo e incluem referências ao Código de Estrada e ao regulamento de exames.</p>
+    </section>
+
+    <section class="section faq">
+      <h2>Perguntas rápidas</h2>
+      <details><summary>É um serviço oficial da Viação/DTSER?</summary><p>Não. O Passa Código AO é uma ferramenta independente de preparação. Não é afiliada nem representa qualquer órgão público.</p></details>
+      <details><summary>São perguntas oficiais do exame?</summary><p>Não. São perguntas originais de treino construídas a partir de legislação pública e do formato regulamentar da prova.</p></details>
+      <details><summary>O acesso garante aprovação?</summary><p>Não. A ferramenta melhora a preparação, mas o resultado depende do estudo do candidato e da prova efetivamente aplicada.</p></details>
+      <details><summary>Preciso instalar uma aplicação?</summary><p>Não. Funciona diretamente no navegador do telemóvel ou computador.</p></details>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Passa Código AO</strong>
+    <span>Ferramenta independente de estudo · Angola</span>
+    <span id="year"></span>
+  </footer>
+
+  <dialog id="unlockDialog">
+    <form method="dialog" class="unlock-box" id="unlockForm">
+      <button class="dialog-close" value="cancel" aria-label="Fechar">×</button>
+      <span class="eyebrow">Ativar acesso</span>
+      <h2>Introduza o seu código</h2>
+      <p>O código é enviado após confirmação do pagamento.</p>
+      <input id="accessCode" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="PCAO-XXXX-XXXX-XXXX" maxlength="19">
+      <p id="unlockError" class="error hidden">Código inválido. Verifique e tente novamente.</p>
+      <button class="btn primary wide" id="unlockButton" value="default">Desbloquear</button>
+      <a class="help-link" id="unlockWhatsapp" target="_blank" rel="noopener">Ainda não tenho código</a>
+    </form>
+  </dialog>
+
+  <script src="./q1.js"></script>
+  <script src="./q2.js"></script>
+  <script src="./access.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
