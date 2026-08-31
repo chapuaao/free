@@ -3,6 +3,7 @@
 
   const WHATSAPP = "244944819923";
   const PRICE = "75 000 Kz";
+  const PDFJS = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
   const WORKER = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
   const $ = (id) => document.getElementById(id);
 
@@ -144,11 +145,23 @@ Este texto é apenas um exemplo criado para demonstrar o funcionamento da ferram
     };
   }
 
+  async function ensurePdfJs(){
+    if(window.pdfjsLib) return window.pdfjsLib;
+    await new Promise((resolve,reject)=>{
+      const script=document.createElement("script");
+      script.src=PDFJS; script.async=true;
+      script.onload=resolve; script.onerror=()=>reject(new Error("Não foi possível carregar o leitor de PDF. Cole o texto do documento ou tente novamente com ligação à internet."));
+      document.head.appendChild(script);
+    });
+    if(!window.pdfjsLib) throw new Error("O leitor de PDF não ficou disponível. Cole o texto do documento.");
+    return window.pdfjsLib;
+  }
+
   async function readPdf(file){
-    if(!window.pdfjsLib) throw new Error("O leitor de PDF não carregou. Cole o texto do documento ou tente novamente com ligação à internet.");
-    window.pdfjsLib.GlobalWorkerOptions.workerSrc=WORKER;
+    const pdfjs=await ensurePdfJs();
+    pdfjs.GlobalWorkerOptions.workerSrc=WORKER;
     const buffer=await file.arrayBuffer();
-    const pdf=await window.pdfjsLib.getDocument({data:buffer}).promise;
+    const pdf=await pdfjs.getDocument({data:buffer}).promise;
     const parts=[];
     for(let pageNo=1;pageNo<=pdf.numPages;pageNo++){
       els.loadingText.textContent=`A extrair texto da página ${pageNo} de ${pdf.numPages}.`;
