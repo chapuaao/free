@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pt-AO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Raio-X gratuito de concursos, RFQs e cadernos de encargos em Angola. Detecte requisitos, prazos, documentos e riscos antes de preparar a proposta.">
+  <title>Concurso Pronto AO — Raio-X de Concursos e Propostas</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Concurso Pronto AO">
+      <span class="brand-mark">CP</span>
+      <span><strong>Concurso Pronto</strong><small>AO</small></span>
+    </a>
+    <a class="header-cta" href="#analisar">Analisar concurso</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Concursos · RFQs · Propostas B2B</span>
+        <h1>Antes de escrever a proposta, descubra <span>o que pode eliminá-la.</span></h1>
+        <p class="lead">Carregue o caderno de encargos ou cole o texto. Em segundos, obtenha um raio-X dos requisitos, documentos, prazos, valores e pontos que precisam de confirmação.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#analisar">Fazer raio-X grátis</a>
+          <button class="btn secondary" id="loadSampleTop">Ver exemplo</button>
+        </div>
+        <div class="trust-row">
+          <span>Sem registo</span><span>PDF processado no aparelho</span><span>Relatório imprimível</span>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <span class="card-kicker">O RAIO-X PROCURA</span>
+        <ul>
+          <li><b>01</b><span>Documentos de habilitação e capacitação</span></li>
+          <li><b>02</b><span>Prazos, datas e valores</span></li>
+          <li><b>03</b><span>Garantias, alvarás e experiência</span></li>
+          <li><b>04</b><span>Proposta técnica e financeira</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="proof-strip">
+      <div><strong>1 ficheiro</strong><span>PDF, TXT ou texto colado</span></div>
+      <div><strong>0 upload</strong><span>o documento fica no navegador</span></div>
+      <div><strong>1 relatório</strong><span>checklist pronto para trabalhar</span></div>
+    </section>
+
+    <section class="section" id="analisar">
+      <div class="section-head">
+        <span class="eyebrow">Ferramenta gratuita</span>
+        <h2>Faça o raio-X do documento.</h2>
+        <p>Use um PDF/texto real ou carregue o exemplo. O motor destaca sinais de exigências; a leitura final do caderno continua a ser obrigatória.</p>
+      </div>
+
+      <div class="analyser-grid">
+        <div class="input-card">
+          <label class="dropzone" for="tenderFile" id="dropzone">
+            <input id="tenderFile" type="file" accept="application/pdf,text/plain,.md">
+            <span class="drop-icon">↑</span>
+            <strong>Carregar caderno de encargos</strong>
+            <small>PDF, TXT ou MD · processado localmente</small>
+          </label>
+          <div class="or"><span>ou</span></div>
+          <label class="field-label" for="tenderText">Cole o texto</label>
+          <textarea id="tenderText" rows="10" placeholder="Cole aqui o anúncio, RFQ, programa do concurso ou caderno de encargos..."></textarea>
+          <div class="input-actions">
+            <button class="btn secondary" id="loadSample">Carregar exemplo</button>
+            <button class="btn primary" id="analyseButton">Analisar agora</button>
+          </div>
+          <p class="privacy-note"><b>Privacidade:</b> o conteúdo do ficheiro não é enviado para a Tenda Digital. A análise gratuita ocorre no seu navegador.</p>
+        </div>
+
+        <aside class="how-card">
+          <span class="eyebrow">Como usar</span>
+          <ol>
+            <li><b>1</b><span>Carregue o documento ou cole o texto.</span></li>
+            <li><b>2</b><span>Veja requisitos, datas, valores e riscos encontrados.</span></li>
+            <li><b>3</b><span>Marque o que a sua empresa já consegue comprovar.</span></li>
+            <li><b>4</b><span>Imprima o relatório ou peça o dossier completo.</span></li>
+          </ol>
+          <div class="mini-warning">O score mede prontidão documental declarada. Não é probabilidade de adjudicação.</div>
+        </aside>
+      </div>
+
+      <div id="loadingPanel" class="status-panel hidden" aria-live="polite">
+        <span class="spinner"></span>
+        <div><strong>A ler o documento…</strong><small id="loadingText">A extrair o texto e a procurar requisitos.</small></div>
+      </div>
+      <div id="errorPanel" class="status-panel error hidden" role="alert"></div>
+    </section>
+
+    <section class="section results hidden" id="resultsSection">
+      <div class="results-top">
+        <div>
+          <span class="eyebrow">Resultado do raio-X</span>
+          <h2 id="resultTitle">Documento analisado</h2>
+          <p id="resultSubtitle"></p>
+        </div>
+        <div class="analysis-ref"><span>REFERÊNCIA</span><strong id="analysisRef">CP-000000</strong></div>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric"><span>Tipo provável</span><strong id="metricType">—</strong></div>
+        <div class="metric"><span>Requisitos detectados</span><strong id="metricRequirements">0</strong></div>
+        <div class="metric"><span>Datas encontradas</span><strong id="metricDates">0</strong></div>
+        <div class="metric"><span>Valores encontrados</span><strong id="metricAmounts">0</strong></div>
+      </div>
+
+      <div class="report-grid">
+        <div class="report-main">
+          <div class="report-card">
+            <div class="card-head">
+              <div><span class="eyebrow">Matriz de conformidade</span><h3>O que o documento parece exigir</h3></div>
+              <span class="legend">Marque a sua situação</span>
+            </div>
+            <div id="requirementsList" class="requirements-list"></div>
+          </div>
+
+          <div class="report-card">
+            <div class="card-head"><div><span class="eyebrow">Prazos e dinheiro</span><h3>Datas e valores localizados</h3></div></div>
+            <div class="two-col">
+              <div><h4>Datas</h4><div id="datesList" class="chips"></div></div>
+              <div><h4>Valores</h4><div id="amountsList" class="chips"></div></div>
+            </div>
+          </div>
+
+          <div class="report-card">
+            <div class="card-head"><div><span class="eyebrow">Trechos críticos</span><h3>Frases que merecem leitura manual</h3></div></div>
+            <div id="criticalExcerpts" class="excerpts"></div>
+          </div>
+        </div>
+
+        <aside class="score-panel">
+          <div class="score-ring" id="scoreRing"><span id="scoreValue">0%</span></div>
+          <span class="score-label">Prontidão documental</span>
+          <h3 id="scoreTitle">Marque a situação da sua empresa.</h3>
+          <p id="scoreMessage">O score sobe quando confirma que já possui os elementos detectados.</p>
+          <div id="riskSummary" class="risk-summary"></div>
+          <button class="btn secondary wide" id="printReport">Imprimir / Guardar PDF</button>
+          <button class="btn ghost wide" id="copySummary">Copiar resumo</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section paid" id="dossier">
+      <div class="paid-copy">
+        <span class="eyebrow">Quando a oportunidade é séria</span>
+        <h2>Não entregue uma proposta montada à pressa.</h2>
+        <p>O <strong>Dossier Concurso Pronto</strong> transforma o caderno e os documentos reais da sua empresa num pacote de trabalho estruturado, assistido por IA e revisto antes da entrega.</p>
+        <ul class="check-list">
+          <li>Matriz de conformidade requisito por requisito</li>
+          <li>Resumo executivo e estratégia de resposta</li>
+          <li>Primeira versão da proposta técnica, baseada em informação comprovável</li>
+          <li>Estrutura da proposta comercial/financeira com os preços fornecidos pela empresa</li>
+          <li>Checklist de documentos e revisão final contra o caderno</li>
+        </ul>
+        <p class="scope-note">Não criamos certidões, referências, experiência ou declarações falsas. Elementos que dependem da empresa são marcados como pendentes.</p>
+      </div>
+      <div class="buy-card">
+        <span class="launch">PREÇO-PILOTO · 1 CONCURSO</span>
+        <div class="price">75 000 <small>Kz</small></div>
+        <p>Um pacote fechado. Sem subscrição e sem contrato de permanência.</p>
+        <a class="btn primary wide" id="buyWhatsapp" target="_blank" rel="noopener">Pedir dossier pelo WhatsApp</a>
+        <small>Envie o caderno de encargos e os documentos que a empresa pode utilizar. A submissão final e a veracidade dos dados continuam sob responsabilidade do concorrente.</small>
+      </div>
+    </section>
+
+    <section class="section why">
+      <div class="section-head">
+        <span class="eyebrow">Por que isto existe</span>
+        <h2>Concursos são problemas de conformidade antes de serem problemas de escrita.</h2>
+      </div>
+      <div class="why-grid">
+        <article><strong>Documentos</strong><p>Um requisito esquecido pode tornar irrelevante uma proposta tecnicamente boa.</p></article>
+        <article><strong>Tempo</strong><p>Equipas pequenas gastam horas a procurar exigências espalhadas por dezenas de páginas.</p></article>
+        <article><strong>Consistência</strong><p>A proposta deve responder ao que foi pedido, sem inventar capacidades que a empresa não comprovou.</p></article>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <h2>Perguntas rápidas</h2>
+      <details><summary>É um serviço oficial do Portal da Contratação Pública?</summary><p>Não. O Concurso Pronto AO é uma ferramenta independente de apoio à leitura e preparação de propostas.</p></details>
+      <details><summary>O raio-X garante que todos os requisitos foram encontrados?</summary><p>Não. É uma triagem automática. O documento original deve ser revisto integralmente antes da submissão.</p></details>
+      <details><summary>O serviço garante adjudicação?</summary><p>Não. A decisão depende dos critérios do procedimento, da concorrência, da documentação, dos preços e da avaliação da entidade contratante.</p></details>
+      <details><summary>Posso usar para pedidos de cotação privados?</summary><p>Sim. O motor também ajuda a estruturar RFQs, pedidos de proposta e cadernos de encargos privados.</p></details>
+      <details><summary>O meu PDF é enviado para algum servidor?</summary><p>Na ferramenta gratuita, não. A leitura acontece no navegador. O dossier pago só usa os ficheiros que o cliente decidir enviar para preparação do trabalho.</p></details>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Concurso Pronto AO</strong>
+    <span>Produto experimental da Tenda Digital, Lda · Angola</span>
+    <span id="year"></span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
