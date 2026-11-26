@@ -1,4 +1,4 @@
-name: Deploy Gincana do M Demo
+name: Deploy GitHub Pages — chapuaao/free
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
