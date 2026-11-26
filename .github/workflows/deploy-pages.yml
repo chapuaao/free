@@ -30,6 +30,21 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: '.'
+      - name: Aguardar disponibilidade do artefacto Pages
+        shell: bash
+        run: |
+          for attempt in {1..15}; do
+            count="$(gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" --jq '[.artifacts[] | select(.name == "github-pages" and .expired == false)] | length' || echo 0)"
+            if [ "$count" = "1" ]; then
+              echo "Artefacto Pages disponível"
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "Artefacto Pages não disponível" >&2
+          exit 1
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
